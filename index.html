@@ -300,11 +300,11 @@
       
         
           
-            <h4 id="1-卷积神经网络（CNN）的定义"><a href="#1-卷积神经网络（CNN）的定义" class="headerlink" title="1.卷积神经网络（CNN）的定义"></a>1.卷积神经网络（CNN）的定义</h4><p>一般地，我们可以将CNN视为人工神经网络，它是具有专门可以检测或挑选pattern的一些结构。<br>这种pattern detection使CNN对图像分析非常有用。 </p>
+            <h4 id="卷积神经网络（CNN）的定义"><a href="#卷积神经网络（CNN）的定义" class="headerlink" title="卷积神经网络（CNN）的定义"></a>卷积神经网络（CNN）的定义</h4><p>一般地，我们可以将CNN视为人工神经网络，它是具有专门可以检测或挑选pattern的一些结构。<br>这种pattern detection使CNN对图像分析非常有用。 </p>
 <p>如果CNN只是一个人工神经网络，那么它与标准多层感知器或MLP的区别是什么？<br>它们的区别在于：CNN有隐藏的层，称为<strong>卷积层</strong>。</p>
-<h4 id="2-卷积层"><a href="#2-卷积层" class="headerlink" title="2.卷积层"></a>2.卷积层</h4><p>与任何其他层一样，卷积层接收输入，以某种方式转换输入，然后将转换后的输入输出到下一层。<br>卷积层的输入称为输入通道，输出称为输出通道。<br>对于卷积层，发生的变换称为卷积运算。卷积运算是深度学习社区使用的术语。在数学上，卷积层执行的卷积运算实际上称为<strong>互相关</strong>。</p>
-<h4 id="3-过滤器和卷积运算"><a href="#3-过滤器和卷积运算" class="headerlink" title="3.过滤器和卷积运算"></a>3.过滤器和卷积运算</h4><p>如前面所提到的那样，卷积神经网络能够检测图像中的特征（detect pattern）。<br>对于每个卷积层，我们需要指定图层应具有的过滤器数量，作为检测特征所用。</p>
-<h4 id="4-Patterns"><a href="#4-Patterns" class="headerlink" title="4.Patterns"></a>4.Patterns</h4><p>patterns具体是指什么呢？<br>当我们说过滤器能够检测patterns时，想想在任何一张图片中我们需要获得怎样的信息才能使它被检测出来呢？<br>边缘，形状，纹理，对象等。这些是我们所说的patterns。 </p>
+<h4 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h4><p>与任何其他层一样，卷积层接收输入，以某种方式转换输入，然后将转换后的输入输出到下一层。<br>卷积层的输入称为输入通道，输出称为输出通道。<br>对于卷积层，发生的变换称为卷积运算。卷积运算是深度学习社区使用的术语。在数学上，卷积层执行的卷积运算实际上称为<strong>互相关</strong>。</p>
+<h4 id="过滤器和卷积运算"><a href="#过滤器和卷积运算" class="headerlink" title="过滤器和卷积运算"></a>过滤器和卷积运算</h4><p>如前面所提到的那样，卷积神经网络能够检测图像中的特征（detect pattern）。<br>对于每个卷积层，我们需要指定图层应具有的过滤器数量，作为检测特征所用。</p>
+<h4 id="Patterns"><a href="#Patterns" class="headerlink" title="Patterns"></a>Patterns</h4><p>patterns具体是指什么呢？<br>当我们说过滤器能够检测patterns时，想想在任何一张图片中我们需要获得怎样的信息才能使它被检测出来呢？<br>边缘，形状，纹理，对象等。这些是我们所说的patterns。 </p>
 <ul>
 <li>边缘 </li>
 <li>形状 </li>
@@ -316,12 +316,12 @@
 <p>过滤器在图像中可以检测到的一种模式是边缘，因此该滤波器将被称为边缘检测器。除了边缘，一些过滤器可能会检测角。有些可能检测圆圈，有些检测矩形。这些简单的几何滤波器就是我们在卷积神经网络开始时所看到的。</p>
 <p>网络越深，过滤器就越复杂。在后面的图层中，我们的滤波器可以检测特定的物体，如眼睛，耳朵，头发或毛发，羽毛，鳞片和喙，而不是边缘和简单的形状。</p>
 <p>在更深的层中，过滤器能够检测更复杂的物体，如犬，猫，蜥蜴和鸟类。</p>
-<h4 id="5-例子"><a href="#5-例子" class="headerlink" title="5.例子"></a>5.例子</h4><p>下面我们来具体看一个手写数字识别的例子</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>下面我们来具体看一个手写数字识别的例子</p>
 <p>假设我们有一个卷积神经网络接受手写数字的图像（比如来自MNIST数据集），我们的网络正在将它们分类为各自的类别，即1,2,3等</p>
 <h5 id="过滤器-pattern-detectors"><a href="#过滤器-pattern-detectors" class="headerlink" title="过滤器 (pattern detectors)"></a><strong>过滤器 (pattern detectors)</strong></h5><p>我们假设网络的第一个隐层是卷积层，正如前面所提到的那样，当添加一个卷积层到我们的模型的时候，我们必须指定过滤器的数量。<strong>过滤器的数量决定了输出通道的数量</strong>。</p>
 <p>从数学上讲，滤波器可以被认为是一个相对较小的矩阵（张量），为此，我们决定该矩阵具有的行数和列数，并且该矩阵内的值用随机数初始化。</p>
 <p>对于我们的第一个卷积层，我们将指定我们希望该层包含一个大小为3 x 3的过滤器。</p>
-<h5 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h5><p>让我们看一下卷积操作的示例动画：</p>
+<h5 id="卷积层-1"><a href="#卷积层-1" class="headerlink" title="卷积层"></a>卷积层</h5><p>让我们看一下卷积操作的示例动画：</p>
 <p><img src="https://raw.githubusercontent.com/SSTTTAY/sstttay.github.io/master/img/卷积神经网络.resources/F8195F49-F5DD-4582-B984-F58266614D2F.gif" alt="d6893085ec1fe4a0ad20f68589be1768"></p>
 <p>此动画展示了没有数字的卷积过程。我们在底部有一个蓝色的输入通道。底部阴影的卷积滤镜在输入通道上滑动，绿色为输出通道。</p>
 <ul>
