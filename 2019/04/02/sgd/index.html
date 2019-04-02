@@ -79,24 +79,17 @@
 
 
 
-<meta name="description" content="线性变换满足两个条件 经过变换之后，直线仍然是直线，没有变曲线 原点坐标保持不变   如何用数值计算表现这些线性变换？实际上，只用一组基向量就能表示： 二维线性变换仅由4个数字决定即基向量i变换后的坐标和基向量j变换后的坐标。我们把这两个坐标连起来变成一个二维数组：第一列表示变换后的第一个向量，第二列表示变换后的第二个向量 可视化二维线性变换过程：">
+<meta name="description" content="1.SGD（随机梯度下降）梯度下降是用全部数据集去计算损失函数的梯度就更新一次参数。随机梯度下降就是随机抽取一个样本或者小批量样本就更新一次参数。 在随机梯度下降中，梯度可以近似地表示为： $w:w=\eta\nabla Q_i (w)$， $\eta$ 表示一步的大小（step_size）,在机器学习中称为学习率。 1.随机选择一个初始化变量 $w$ 和 $\eta$ 2.重复以下过程获得最小值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性变换和矩阵-3B1B">
-<meta property="og:url" content="http://yoursite.com/2019/03/03/line_trans/index.html">
+<meta property="og:title" content="最优化方法总结">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/sgd/index.html">
 <meta property="og:site_name" content="拾花儿">
-<meta property="og:description" content="线性变换满足两个条件 经过变换之后，直线仍然是直线，没有变曲线 原点坐标保持不变   如何用数值计算表现这些线性变换？实际上，只用一组基向量就能表示： 二维线性变换仅由4个数字决定即基向量i变换后的坐标和基向量j变换后的坐标。我们把这两个坐标连起来变成一个二维数组：第一列表示变换后的第一个向量，第二列表示变换后的第二个向量 可视化二维线性变换过程：">
+<meta property="og:description" content="1.SGD（随机梯度下降）梯度下降是用全部数据集去计算损失函数的梯度就更新一次参数。随机梯度下降就是随机抽取一个样本或者小批量样本就更新一次参数。 在随机梯度下降中，梯度可以近似地表示为： $w:w=\eta\nabla Q_i (w)$， $\eta$ 表示一步的大小（step_size）,在机器学习中称为学习率。 1.随机选择一个初始化变量 $w$ 和 $\eta$ 2.重复以下过程获得最小值">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.5.png">
-<meta property="og:updated_time" content="2019-03-05T06:30:15.901Z">
+<meta property="og:updated_time" content="2019-04-02T03:22:08.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线性变换和矩阵-3B1B">
-<meta name="twitter:description" content="线性变换满足两个条件 经过变换之后，直线仍然是直线，没有变曲线 原点坐标保持不变   如何用数值计算表现这些线性变换？实际上，只用一组基向量就能表示： 二维线性变换仅由4个数字决定即基向量i变换后的坐标和基向量j变换后的坐标。我们把这两个坐标连起来变成一个二维数组：第一列表示变换后的第一个向量，第二列表示变换后的第二个向量 可视化二维线性变换过程：">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/03/img/line_trans_img/NSFileHandle.1.png">
+<meta name="twitter:title" content="最优化方法总结">
+<meta name="twitter:description" content="1.SGD（随机梯度下降）梯度下降是用全部数据集去计算损失函数的梯度就更新一次参数。随机梯度下降就是随机抽取一个样本或者小批量样本就更新一次参数。 在随机梯度下降中，梯度可以近似地表示为： $w:w=\eta\nabla Q_i (w)$， $\eta$ 表示一步的大小（step_size）,在机器学习中称为学习率。 1.随机选择一个初始化变量 $w$ 和 $\eta$ 2.重复以下过程获得最小值">
 
 
 
@@ -126,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/03/line_trans/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/02/sgd/">
 
 
 
 
 
-  <title>线性变换和矩阵-3B1B | 拾花儿</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>最优化方法总结 | 拾花儿</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -239,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/line_trans/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/sgd/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lucy Tang">
@@ -256,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">线性变换和矩阵-3B1B</h1>
+          <h1 class="post-title" itemprop="name headline">最优化方法总结</h1>
         
 
         <div class="post-meta">
@@ -268,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-03T09:35:20+08:00">
-                2019-03-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T11:21:08+08:00">
+                2019-04-02
               </time>
             
 
@@ -306,14 +299,33 @@
       
 
       
-        <h4 id="线性变换满足两个条件"><a href="#线性变换满足两个条件" class="headerlink" title="线性变换满足两个条件"></a>线性变换满足两个条件</h4><ol>
-<li>经过变换之后，直线仍然是直线，没有变曲线</li>
-<li>原点坐标保持不变</li>
-</ol>
-<p><img src="../img/line_trans_img/NSFileHandle.1.png" alt="3ca1d42a23b9f354b27e38172067c626.png"></p>
-<h4 id="如何用数值计算表现这些线性变换？"><a href="#如何用数值计算表现这些线性变换？" class="headerlink" title="如何用数值计算表现这些线性变换？"></a>如何用数值计算表现这些线性变换？</h4><p><img src="../img/line_trans_img/NSFileHandle.2.png" alt="896ca59f1a42ead0439952611cc6ff96.png"><br>实际上，只用一组基向量就能表示：<br><img src="../img/line_trans_img/NSFileHandle.3.png" alt="5327c84cc73f74099c1d0ba4b8e7ce2f.png"><br><img src="../img/line_trans_img/NSFileHandle.4.png" alt="7f52a49f21eebe6b1a4b913a7b9b614e.png"></p>
-<h4 id="二维线性变换仅由4个数字决定"><a href="#二维线性变换仅由4个数字决定" class="headerlink" title="二维线性变换仅由4个数字决定"></a>二维线性变换仅由4个数字决定</h4><p><strong>即基向量i变换后的坐标和基向量j变换后的坐标</strong>。我们把这两个坐标连起来变成一个二维数组：第一列表示变换后的第一个向量，第二列表示变换后的第二个向量<br><img src="../img/line_trans_img/NSFileHandle.png" alt="6d82ec3db08e09649c4a138c3dd8b0c8.png"></p>
-<h4 id="可视化二维线性变换过程："><a href="#可视化二维线性变换过程：" class="headerlink" title="可视化二维线性变换过程："></a>可视化二维线性变换过程：</h4><p><img src="../img/line_trans_img/NSFileHandle.5.png" alt="037e00700ed39e979fd722db6710b49f.png"></p>
+        <h4 id="1-SGD（随机梯度下降）"><a href="#1-SGD（随机梯度下降）" class="headerlink" title="1.SGD（随机梯度下降）"></a>1.SGD（随机梯度下降）</h4><p>梯度下降是用全部数据集去计算损失函数的梯度就更新一次参数。随机梯度下降就是随机抽取一个样本或者小批量样本就更新一次参数。</p>
+<p>在随机梯度下降中，梯度可以近似地表示为：</p>
+<p>$w:w=\eta\nabla Q_i (w)$，</p>
+<p>$\eta$ 表示一步的大小（step_size）,在机器学习中称为学习率。</p>
+<p>1.随机选择一个初始化变量 $w$ 和 $\eta$</p>
+<p>2.重复以下过程获得最小值：</p>
+<p>​    随机抽取训练集中的示例</p>
+<p>​    for $i = 1,2,3,…$ do :</p>
+<p>​        $w=w - \eta\nabla Q_i (w)$.</p>
+<p>SGD的缺点：</p>
+<p>如果学习率很大的情况下，梯度在水平方向上梯度很小，在竖直方向上梯度很大，形成锯齿形的更新。</p>
+<h4 id="2-Momentum-update-动量更新"><a href="#2-Momentum-update-动量更新" class="headerlink" title="2.Momentum update(动量更新)"></a>2.Momentum update(动量更新)</h4><p>SGD在非凸函数的情况下会得到局部最优解，不能得到全局最优解。在它的基础上，提出一种改进的方法：动量更新</p>
+<p>$v = mu * v^{(t-1)} -\eta\nabla Q_t(x) $</p>
+<p>$x^{t+1}=x^t-v^t$</p>
+<p>mu是一个超参数，通常取 $[0.5,0.9,0.95,0.99]$</p>
+<p>把最优化过程看成石头滚下山的过程，梯度可以看作是山给石头施加的阻力，通过物理学理论$F= m*a$ ，可以得出，梯度与石头滚下山的加速度成正比。</p>
+<p>在公式中可以看到，动量更新与SGD的区别在于它会考虑前一次参数更新的方向，如果当前梯度方向与历史参数更新的方向一致，则会增强这个方向的梯度，若不一致，则会衰退。</p>
+<p>momentum update能跳出局部最优，获得全局最优解。</p>
+<h3 id="3-Adagrad"><a href="#3-Adagrad" class="headerlink" title="3.Adagrad"></a><strong>3.Adagrad</strong></h3><p>SGD和动量更新过程中学习率都是固定不变的，而Adagrad则引入了学习率衰减参数，即在训练过程中学习率是阶段性变化的。Ada是adaptive的简写，意思是自适应。在机器学习中，一般使用较大的学习率以获得更快的收敛速度和跳出局部最优，接着到后面用小的学习率找到极值。</p>
+<p>Adagrad的公式是：</p>
+<p>$x_i^{(t-1)} = x_i^{(t)}-\frac{\gamma}{\sqrt{G_{t,ii}}+\epsilon}g_{t,i}$</p>
+<p>$\epsilon$ 是平滑项，主要避免分母为0的情况，一般设定为 $1e-7$ ，$\frac{\gamma}{\sqrt{G_{t,ii}}+\epsilon}$ 就是学习率，随着时间步长减小。</p>
+<p>Adagrad的缺点是在训练中分母累积会越来越大，使梯度趋向于0.</p>
+<p>4.RMSProp</p>
+<p>针对Adagrad的问题，RMSProp解决了梯度为0的问题，它将上式的分母变成对应的平均值</p>
+<h4 id="5-Adam"><a href="#5-Adam" class="headerlink" title="5.Adam"></a>5.Adam</h4><p>Adam是动量更新和RMSProp的结合体</p>
+<p>​</p>
 
       
     </div>
@@ -338,8 +350,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/31/卷积神经网络/" rel="next" title="卷积神经网络">
-                <i class="fa fa-chevron-left"></i> 卷积神经网络
+              <a href="/2019/03/03/line_trans/" rel="next" title="线性变换和矩阵-3B1B">
+                <i class="fa fa-chevron-left"></i> 线性变换和矩阵-3B1B
               </a>
             
           </div>
@@ -347,10 +359,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/02/sgd/" rel="prev" title="最优化方法总结">
-                最优化方法总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,7 +472,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变换满足两个条件"><span class="nav-number">1.</span> <span class="nav-text">线性变换满足两个条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何用数值计算表现这些线性变换？"><span class="nav-number">2.</span> <span class="nav-text">如何用数值计算表现这些线性变换？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维线性变换仅由4个数字决定"><span class="nav-number">3.</span> <span class="nav-text">二维线性变换仅由4个数字决定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视化二维线性变换过程："><span class="nav-number">4.</span> <span class="nav-text">可视化二维线性变换过程：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SGD（随机梯度下降）"><span class="nav-number">1.</span> <span class="nav-text">1.SGD（随机梯度下降）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Momentum-update-动量更新"><span class="nav-number">2.</span> <span class="nav-text">2.Momentum update(动量更新)</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Adagrad"><span class="nav-number"></span> <span class="nav-text">3.Adagrad</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Adam"><span class="nav-number">1.</span> <span class="nav-text">5.Adam</span></a></li></ol></li></div>
             
 
           </div>
